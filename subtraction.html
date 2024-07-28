@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Subtraction Game</title>
+  <style>
+    .head {
+      text-align: center;
+      background-color: azure;
+    }
+    p {
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    h1 {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    body {
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <div class="head">
+    <h1>The Subtraction Game</h1>
+    <p>Put the right answer in a series of equations in 30s, using subtraction.</p>
+    <p id="randomNumber"></p>
+    <p id="randomNumber1"></p>
+    <input type="text" id="answer">
+    <button onclick="buttonClick()">Go :)</button>
+    <button onclick="generateNumber()">Start</button>
+    <p id="result"></p>
+  </div>
+  <script>
+    let randomNumber1;
+    let randomNumber2;
+
+    function buttonClick() {
+      const trueAnswer = randomNumber1 - randomNumber2;
+      const userAnswer = parseInt(document.getElementById("answer").value);
+      if (trueAnswer === userAnswer) {
+        alert('You got It')
+        generateNumber();
+      } else {
+        alert('Not quite....')
+      }
+    }
+
+    function generateNumber() {
+      randomNumber1 = Math.floor(Math.random() * 100) + 1;
+      randomNumber2 = Math.floor(Math.random() * 100) + 1;
+      document.getElementById("randomNumber").textContent = randomNumber1;
+      document.getElementById("randomNumber1").textContent = randomNumber2;
+    }
+  </script>
+</body>
