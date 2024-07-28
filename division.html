@@ -37,6 +37,7 @@
     function buttonClick() {
       const trueAnswer = randomNumber1 / randomNumber2;
       const userAnswer = parseInt(document.getElementById("answer").value);
+      console.log(trueAnswer)
       if (trueAnswer === userAnswer) {
         alert('You got It')
         generateNumber();
